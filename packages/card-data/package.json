@@ -1,0 +1,39 @@
+{
+  "name": "@gwent/card-data",
+  "type": "module",
+  "main": "./dist/index.js",
+  "types": "./dist/index.d.ts",
+  "scripts": {
+    "build": "tsc && npm run copy-json",
+    "copy-json": "cp -r  src/data dist/",
+    "dev": "tsc --watch",
+    "validate": "node dist/scripts/validate-cards.js",
+    "generate-json": "node dist/scripts/generate-json.js"
+  },
+  "exports": {
+    ".": {
+      "types": "./src/index.ts",
+      "default": "./dist/index.js"
+    },
+    "./validation": {
+      "types": "./dist/validation/index.d.ts",
+      "default": "./dist/validation/index.js"
+    },
+    "./json/*": "./data/*.json"
+  },
+  "files": [
+    "dist",
+    "data"
+  ],
+  "dependencies": {
+    "@gwent/shared-types": "workspace:*",
+    "fs": "0.0.1-security",
+    "path": "^0.12.7",
+    "zod": "^3.22.0"
+  },
+  "devDependencies": {
+    "@gwent/typescript-config": "workspace:*",
+    "@types/node": "^24.3.3",
+    "typescript": "latest"
+  }
+}

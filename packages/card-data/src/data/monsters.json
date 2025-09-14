@@ -1,0 +1,50 @@
+[
+  {
+    "id": "mo-ghoul",
+    "name": "Ghoul",
+    "power": 1,
+    "basePower": 1,
+    "faction": "monsters",
+    "type": "unit",
+    "rarity": "bronze",
+    "row": "melee",
+    "isHero": false,
+    "description": "Flesh-eating undead creature"
+  },
+  {
+    "id": "mo-nekker",
+    "name": "Nekker",
+    "power": 2,
+    "basePower": 2,
+    "faction": "monsters",
+    "type": "unit",
+    "rarity": "bronze",
+    "row": "melee",
+    "isHero": false,
+    "description": "Small but vicious creature"
+  },
+  {
+    "id": "mo-wyvern",
+    "name": "Wyvern",
+    "power": 2,
+    "basePower": 2,
+    "faction": "monsters",
+    "type": "unit",
+    "rarity": "bronze",
+    "row": "ranged",
+    "isHero": false,
+    "description": "Lesser dragon with venomous sting"
+  },
+  {
+    "id": "mo-fiend",
+    "name": "Fiend",
+    "power": 6,
+    "basePower": 6,
+    "faction": "monsters",
+    "type": "unit",
+    "rarity": "bronze",
+    "row": "siege",
+    "isHero": false,
+    "description": "Massive creature with hypnotic powers"
+  }
+]

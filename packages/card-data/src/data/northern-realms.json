@@ -1,0 +1,62 @@
+[
+  {
+    "id": "nr-poor-fucking-infantry",
+    "name": "Poor Fucking Infantry",
+    "power": 1,
+    "basePower": 1,
+    "faction": "northern-realms",
+    "type": "unit",
+    "rarity": "bronze",
+    "row": "melee",
+    "isHero": false,
+    "description": "Basic infantry unit of the Northern Realms"
+  },
+  {
+    "id": "nr-blue-stripes-commando",
+    "name": "Blue Stripes Commando",
+    "power": 4,
+    "basePower": 4,
+    "faction": "northern-realms",
+    "type": "unit",
+    "rarity": "bronze",
+    "row": "melee",
+    "isHero": false,
+    "description": "Elite Temerian special forces unit"
+  },
+  {
+    "id": "nr-redanian-knight",
+    "name": "Redanian Knight",
+    "power": 5,
+    "basePower": 5,
+    "faction": "northern-realms",
+    "type": "unit",
+    "rarity": "bronze",
+    "row": "melee",
+    "isHero": false,
+    "description": "Heavy cavalry from Redania"
+  },
+  {
+    "id": "nr-crinfrid-reavers-dragon-hunter",
+    "name": "Crinfrid Reavers Dragon Hunter",
+    "power": 5,
+    "basePower": 5,
+    "faction": "northern-realms",
+    "type": "unit",
+    "rarity": "bronze",
+    "row": "ranged",
+    "isHero": false,
+    "description": "Skilled marksman specialized in hunting monsters"
+  },
+  {
+    "id": "nr-ballista",
+    "name": "Ballista",
+    "power": 6,
+    "basePower": 6,
+    "faction": "northern-realms",
+    "type": "unit",
+    "rarity": "bronze",
+    "row": "siege",
+    "isHero": false,
+    "description": "Heavy siege weapon"
+  }
+]

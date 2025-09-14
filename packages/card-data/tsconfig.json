@@ -1,0 +1,14 @@
+{
+  "extends": "@gwent/typescript-config/base.json",
+  "compilerOptions": {
+    "outDir": "./dist",
+    "rootDir": "./src",
+    "declaration": true,
+    "lib": ["ES2020", "DOM"],
+    "types": ["node"],
+    "module": "node16",
+    "moduleResolution": "node16"
+  },
+  "include": ["src/**/*"],
+  "exclude": ["dist", "node_modules"]
+}

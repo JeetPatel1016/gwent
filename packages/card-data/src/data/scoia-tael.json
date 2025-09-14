@@ -1,0 +1,38 @@
+[
+  {
+    "id": "st-elven-skirmisher",
+    "name": "Elven Skirmisher",
+    "power": 2,
+    "basePower": 2,
+    "faction": "scoia-tael",
+    "type": "unit",
+    "rarity": "bronze",
+    "row": "melee",
+    "isHero": false,
+    "description": "Swift elven warrior"
+  },
+  {
+    "id": "st-elven-archer",
+    "name": "Elven Archer",
+    "power": 6,
+    "basePower": 6,
+    "faction": "scoia-tael",
+    "type": "unit",
+    "rarity": "bronze",
+    "row": "ranged",
+    "isHero": false,
+    "description": "Skilled marksman with longbow"
+  },
+  {
+    "id": "st-elven-catapult",
+    "name": "Elven Catapult",
+    "power": 7,
+    "basePower": 7,
+    "faction": "scoia-tael",
+    "type": "unit",
+    "rarity": "bronze",
+    "row": "siege",
+    "isHero": false,
+    "description": "Lightweight but effective siege engine"
+  }
+]
