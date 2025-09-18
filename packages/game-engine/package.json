@@ -1,0 +1,41 @@
+{
+  "name": "@gwent/game-engine",
+  "version": "0.0.0",
+  "private": true,
+  "type": "module",
+  "main": "./dist/index.js",
+  "types": "./dist/index.d.ts",
+  "exports": {
+    ".": {
+      "types": "./dist/index.d.ts",
+      "import": "./dist/index.js"
+    },
+    "./game": {
+      "types": "./dist/game/index.d.ts",
+      "import": "./dist/game/index.js"
+    },
+    "./actions": {
+      "types": "./dist/actions/index.d.ts",
+      "import": "./dist/actions/index.js"
+    }
+  },
+  "scripts": {
+    "build": "tsc",
+    "dev": "tsc --watch",
+    "test": "jest",
+    "test:watch": "jest --watch"
+  },
+  "dependencies": {
+    "@gwent/shared-types": "workspace:*",
+    "@gwent/card-data": "workspace:*",
+    "immer": "^10.0.0"
+  },
+  "devDependencies": {
+    "@gwent/typescript-config": "workspace:*",
+    "@types/jest": "^29.0.0",
+    "@types/node": "^20.0.0",
+    "jest": "^29.0.0",
+    "ts-jest": "^29.0.0",
+    "typescript": "^5.0.0"
+  }
+}

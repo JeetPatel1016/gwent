@@ -4,11 +4,10 @@
   "main": "./dist/index.js",
   "types": "./dist/index.d.ts",
   "scripts": {
-    "build": "tsc && npm run copy-json",
-    "copy-json": "cp -r  src/data dist/",
+    "build": "tsc && npm run generate-json",
+    "generate-json": "node dist/scripts/generate-json.js",
     "dev": "tsc --watch",
-    "validate": "node dist/scripts/validate-cards.js",
-    "generate-json": "node dist/scripts/generate-json.js"
+    "validate": "node dist/scripts/validate-cards.js"
   },
   "exports": {
     ".": {

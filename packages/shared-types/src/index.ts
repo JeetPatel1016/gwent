@@ -1,8 +1,8 @@
-export type { GameBoard, Round, GameState } from "./Game.js";
-export type { Faction, CardType, RowType } from "./Factions.js";
+export type { Round, GameState, RoundOutcome } from "./Game.js";
+export type { Faction, CardType } from "./Factions.js";
 export type { AbilityEffect, CardAbility } from "./Abilities.js";
-export type { CardRarity, Card } from "./Cards.js";
-export type { WeatherEffect, BoardRow } from "./Board.js";
+export type { Card } from "./Cards.js";
+export type { WeatherType, BoardRow, RowType } from "./Board.js";
 export type { Player } from "./Players.js";
 export type {
   GameActionType,

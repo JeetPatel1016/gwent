@@ -1,4 +1,4 @@
-import { RowType } from "./Factions.js";
+import { RowType } from "./Board.js";
 
 export type GameActionType =
   | "play-card"

@@ -1,11 +1,5 @@
+import { WeatherType } from "./Board.js";
 import { Player } from "./Players.js";
-import { WeatherEffect } from "./Board.js";
-
-export interface GameBoard {
-  player1: Player;
-  player2: Player;
-  weatherEffect: WeatherEffect[];
-}
 
 export interface Round {
   number: 1 | 2 | 3;
@@ -15,10 +9,22 @@ export interface Round {
   isComplete: boolean;
 }
 
+export type RoundOutcome =
+  | "PLAYER_1_WINS"
+  | "PLAYER_2_WINS"
+  | "DRAW"
+  | "ONGOING";
+
+export type GameOutcome =
+  | "PLAYER_1_WINS"
+  | "PLAYER_2_WINS"
+  | "DRAW"
+  | "ONGOING";
+
 export interface GameState {
   id: string;
   players: [Player, Player];
-  board: GameBoard;
+  activeWeathers: WeatherType[];
 
   currentRound: Round;
   rounds: Round[];

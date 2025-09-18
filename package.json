@@ -1,5 +1,5 @@
 {
-  "name": "gwent new",
+  "name": "gwent",
   "private": true,
   "scripts": {
     "build": "turbo run build",

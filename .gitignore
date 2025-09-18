@@ -36,3 +36,8 @@ yarn-error.log*
 # Misc
 .DS_Store
 *.pem
+
+
+# Generated card data
+packages/card-data/src/data/
+packages/card-data/dist/data/

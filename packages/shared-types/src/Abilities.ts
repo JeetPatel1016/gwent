@@ -1,13 +1,11 @@
 export interface AbilityEffect {
   type:
-    | "damage"
-    | "boost"
-    | "spawn"
-    | "draw"
-    | "ressurect"
-    | "weather"
-    | "clear-weather"
+    | "agile"
+    | "medic"
+    | "morale_boost"
+    | "muster"
     | "spy"
+    | "tight_bond"
     | "scorch";
   value?: number;
   target:

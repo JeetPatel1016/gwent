@@ -6,7 +6,6 @@ export {
   FactionSchema,
   CardTypeSchema,
   RowTypeSchema,
-  CardRaritySchema,
 } from "./cardSchema.js";
 
 export type CardValidationResult = {

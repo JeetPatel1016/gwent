@@ -12,8 +12,6 @@ export const CardTypeSchema = z.enum(["unit", "spell", "weather", "leader"]);
 
 export const RowTypeSchema = z.enum(["melee", "ranged", "siege"]);
 
-export const CardRaritySchema = z.enum(["bronze", "silver", "gold"]);
-
 export const AbilityEffectSchema = z.object({
   type: z.enum([
     "damage",
@@ -56,7 +54,6 @@ export const CardSchema = z
     basePower: z.number().min(0).max(15),
     faction: FactionSchema,
     type: CardTypeSchema,
-    rarity: CardRaritySchema,
     row: RowTypeSchema.optional(),
     ability: CardAbilitySchema.optional(),
     isHero: z.boolean(),
@@ -109,22 +106,6 @@ export const DeckSchema = z
       );
       if (!validFactionCards) {
         return false;
-      }
-
-      // No more than 3 copies of any bronze card
-      const cardCounts = new Map<string, number>();
-      for (const card of deck.cards) {
-        const count = cardCounts.get(card.id) || 0;
-        if (card.rarity === "bronze" && count >= 3) {
-          return false;
-        }
-        if (card.rarity === "silver" && count >= 1) {
-          return false;
-        }
-        if (card.rarity === "gold" && count >= 1) {
-          return false;
-        }
-        cardCounts.set(card.id, count + 1);
       }
 
       return true;
