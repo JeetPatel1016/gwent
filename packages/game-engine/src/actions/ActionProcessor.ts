@@ -1,7 +1,13 @@
 // packages/game-engine/src/actions/ActionProcessor.ts
 
 import { produce } from "immer";
-import { GameState, Card, RowType, Player } from "@gwent/shared-types";
+import {
+  GameState,
+  Card,
+  RowType,
+  Player,
+  GameStatus,
+} from "@gwent/shared-types";
 import {
   findCardById,
   removeCardById,

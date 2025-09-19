@@ -146,7 +146,7 @@ export function createInitialGameState(
   return {
     id: gameId,
     players: [player1, player2],
-    status: "waiting",
+    status: "in-progress",
 
     currentRound: initialRound,
     rounds: [initialRound],

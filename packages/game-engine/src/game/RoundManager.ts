@@ -30,14 +30,6 @@ export function checkAndEndRound(state: GameState): GameState {
  * @returns New game state with round ended
  */
 export function endCurrentRound(state: GameState): GameState {
-  // TODO: Implement
-  // 1. Determine round outcome using determineRoundWinner()
-  // 2. Update player lives based on outcome
-  // 3. Update round data (winner, scores, isComplete)
-  // 4. Check if match is over
-  // 5. If match over, set game status to 'finished' and winner
-  // 6. Return updated state
-
   const outcome = determineRoundWinner(
     state.players[0],
     state.players[1],
@@ -55,36 +47,43 @@ export function endCurrentRound(state: GameState): GameState {
     state.players[1].lives,
     outcome
   );
+
   const newState = produce(state, (draft) => {
     // Update player lives
-    ((draft.players[0].lives = newLives.player1Lives),
-      (draft.players[1].lives = newLives.player2Lives),
-      // Update current round data
-      (draft.currentRound.isComplete = true));
+    draft.players[0].lives = newLives.player1Lives;
+    draft.players[1].lives = newLives.player2Lives;
+
+    // Update roundsWon for each player
+    if (outcome === "PLAYER_1_WINS") {
+      draft.players[0].roundsWon++;
+    } else if (outcome === "PLAYER_2_WINS") {
+      draft.players[1].roundsWon++;
+    }
+    // For draw, no one's roundsWon increases
+
+    // Update current round data
+    draft.currentRound.isComplete = true;
     draft.currentRound.player1Score = scores.player1Score;
     draft.currentRound.player2Score = scores.player2Score;
 
     // Set round winner based on outcome
     if (outcome === "PLAYER_1_WINS") {
       draft.currentRound.winner = draft.players[0].id;
-    }
-    if (outcome === "PLAYER_2_WINS") {
+    } else if (outcome === "PLAYER_2_WINS") {
       draft.currentRound.winner = draft.players[1].id;
     }
-    // For draw winner is undefined.
+    // For draw winner is undefined
 
-    // Update the current round index in the rounds array.
+    // Update the current round in the rounds array
     const currentRoundIndex = draft.rounds.length - 1;
     draft.rounds[currentRoundIndex] = draft.currentRound;
 
     draft.updatedAt = new Date();
   });
 
-  const roundWins = getRoundWinCounts(newState);
-  const matchOutcome = isMatchOver(
-    roundWins.player1Wins,
-    roundWins.player2Wins
-  );
+  // Check if match is over - UPDATED to pass Player objects
+  const matchOutcome = isMatchOver(newState.players[0], newState.players[1]);
+
   if (matchOutcome !== "ONGOING") {
     return produce(newState, (draft) => {
       draft.status = "finished";
@@ -98,6 +97,7 @@ export function endCurrentRound(state: GameState): GameState {
       draft.updatedAt = new Date();
     });
   }
+
   return newState;
 }
 

@@ -1,5 +1,3 @@
-// packages/game-engine/src/utils/ScoreCalculator.ts
-
 import { Player, WeatherType, RoundOutcome } from "@gwent/shared-types";
 import { calculatePlayerScore } from "./GameUtils.js";
 import { GAME_RULES } from "../constants/GameConstants.js";
@@ -40,24 +38,31 @@ export function determineRoundWinner(
 
 /**
  * Check if the match is over based on rounds won
- * @param player1RoundsWon - Number of rounds won by player 1
- * @param player2RoundsWon - Number of rounds won by player 2
+ * @param player1 - 1st Player object
+ * @param player2 - 2nd Player object
  * @returns The match outcome
  */
-export function isMatchOver(
-  player1RoundsWon: number,
-  player2RoundsWon: number
-): RoundOutcome {
-  // Check if either player has won enough rounds (best of 3)
-  if (player1RoundsWon >= GAME_RULES.ROUNDS_TO_WIN) {
+export function isMatchOver(player1: Player, player2: Player): RoundOutcome {
+  // Check if either player won 2 rounds
+  if (player1.roundsWon >= GAME_RULES.ROUNDS_TO_WIN) {
     return "PLAYER_1_WINS";
   }
 
-  if (player2RoundsWon >= GAME_RULES.ROUNDS_TO_WIN) {
+  if (player2.roundsWon >= GAME_RULES.ROUNDS_TO_WIN) {
     return "PLAYER_2_WINS";
   }
 
-  // Match is still ongoing
+  // Check if either player has no lives left
+  if (player1.lives <= 0 && player2.lives <= 0) {
+    return "DRAW"; // Both eliminated
+  }
+  if (player1.lives <= 0) {
+    return "PLAYER_2_WINS";
+  }
+  if (player2.lives <= 0) {
+    return "PLAYER_1_WINS";
+  }
+
   return "ONGOING";
 }
 
@@ -116,15 +121,12 @@ export function updatePlayerLives(
 
 /**
  * Get the current match winner based on rounds won (convenience function)
- * @param player1RoundsWon - Number of rounds won by player 1
- * @param player2RoundsWon - Number of rounds won by player 2
+ * @param player1 - Player 1 object
+ * @param player2 - Player 2 object
  * @returns Player index who won the match, or null if ongoing
  */
-export function getMatchWinner(
-  player1RoundsWon: number,
-  player2RoundsWon: number
-): 0 | 1 | null {
-  const matchOutcome = isMatchOver(player1RoundsWon, player2RoundsWon);
+export function getMatchWinner(player1: Player, player2: Player): 0 | 1 | null {
+  const matchOutcome = isMatchOver(player1, player2);
 
   switch (matchOutcome) {
     case "PLAYER_1_WINS":

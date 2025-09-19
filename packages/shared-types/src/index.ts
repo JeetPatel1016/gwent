@@ -1,4 +1,4 @@
-export type { Round, GameState, RoundOutcome } from "./Game.js";
+export type { Round, GameState, RoundOutcome, GameStatus } from "./Game.js";
 export type { Faction, CardType } from "./Factions.js";
 export type { AbilityEffect, CardAbility } from "./Abilities.js";
 export type { Card } from "./Cards.js";

@@ -21,6 +21,8 @@ export type GameOutcome =
   | "DRAW"
   | "ONGOING";
 
+export type GameStatus = "waiting" | "in-progress" | "finished";
+
 export interface GameState {
   id: string;
   players: [Player, Player];
@@ -32,7 +34,7 @@ export interface GameState {
   currentPlayerIndex: 0 | 1;
   turnCount: number;
 
-  status: "waiting" | "in-progress" | "finished";
+  status: GameStatus;
   winner?: string;
 
   createdAt: Date;
